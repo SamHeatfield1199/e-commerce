@@ -1,5 +1,6 @@
 import { Button, Container, Grid, Typography } from '@material-ui/core'
 import React from 'react'
+import { Link } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
 import useStyles from './styles';
 
@@ -10,7 +11,10 @@ const Cart = ({ cart }) => {
 
     const EmptyCart = () => (
         <Typography variant="subtitle1">
-            You have no items in your cart, start adding some!
+            You have no items in your cart,
+            <Link to='/' className={classes.link}>
+                start adding some
+            </Link>!
         </Typography>
     );
 
@@ -20,7 +24,7 @@ const Cart = ({ cart }) => {
                 {cart.line_items.map(
                     (lineItem) => (
                         <Grid item xs={12} sm={4} key={lineItem.id}>
-                            <CartItem item = {lineItem}/>
+                            <CartItem item={lineItem} />
                         </Grid>
 
                     )

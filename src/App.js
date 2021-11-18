@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Products, Navbar, Cart } from "./components";
 
@@ -18,10 +19,10 @@ const App = () => {
     const cart = await commerce.cart.retrieve();
     setCart(cart);
   };
-console.log('cart', cart)
+  console.log("cart", cart);
   const handleAddToCart = async (productId, quantity) => {
     const item = await commerce.cart.add(productId, quantity);
-    setCart(item.cart)
+    setCart(item.cart);
   };
 
   useEffect(() => {
@@ -32,11 +33,19 @@ console.log('cart', cart)
   console.log(products);
 
   return (
-    <div>
-      <Navbar totalItems ={cart.total_items}/>
-      {/* <Products products={products} onAddToCart = {handleAddToCart} />*/}
-     <Cart cart = {cart}/>
-    </div>
+    <Router>
+      <div style={{ display: 'flex' }}>
+        <Navbar totalItems={cart.total_items} />
+        <Switch>
+          <Route exact path="/">
+            <Products products={products} onAddToCart={handleAddToCart} />
+          </Route>
+          <Route  exact path="/cart">
+            <Cart cart={cart} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
