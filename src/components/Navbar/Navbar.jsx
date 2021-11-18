@@ -4,7 +4,7 @@ import React from 'react'
 import useStyles from './styles';
 import logo from '../../assets/commerce.png'
 
-const  Navbar = () =>{
+const  Navbar = ({totalItems}) =>{
     const classes = useStyles();
     return (
         <>
@@ -17,7 +17,7 @@ const  Navbar = () =>{
                     <div className={classes.grow}></div>
                     <div className={classes.button}>
                         <IconButton aria-label="Show cart items" color="inherit">
-                            <Badge badgeContent={2} colors='secondary'>
+                            <Badge badgeContent={totalItems} colors='secondary'>
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
