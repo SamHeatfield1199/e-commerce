@@ -1,17 +1,9 @@
 import CategoryItem from "./CategoryItem";
 import { categories } from "../data";
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import {  Grid } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  row: {
-    display: "flex",
-    padding: "20px",
-    justifyContent: "space-between",
-  },
-});
 
 const Categories = () => {
-  const classes = useStyles();
   return (
     <Grid container justify="center" spacing={1}>
       {categories.map((item) => (
