@@ -1,4 +1,4 @@
-import { Paper, Step, StepLabel, Stepper, Typography, Button } from '@material-ui/core';
+import { Paper, Step, StepLabel, Stepper, Typography, Button, CircularProgress, CssBaseline } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import useStyles from './styles';
 import { useState } from 'react';
@@ -57,7 +57,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     </>
   ) : (
     <div className={classes.spinner}>
-      
+      <CircularProgress />
     </div>
   ));
 
@@ -77,6 +77,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   return (
     <>
+     <CssBaseline />
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>

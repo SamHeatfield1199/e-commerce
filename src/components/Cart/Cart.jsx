@@ -21,36 +21,39 @@ const Cart = ({ cart, handleUpdateCartQty,
     );
 
     const FilledCart = () => (
-        <>
+        <Container >
+            <div>
             <Grid container spacing={3}>
                 {cart.line_items.map(
                     (lineItem) => (
                         <Grid item xs={12} sm={4} key={lineItem.id}>
                             <CartItem item={lineItem} onUpdateCartQnt={handleUpdateCartQty}
-                            onRemoveFromCart={handleRemoveFromCart}/>
+                                onRemoveFromCart={handleRemoveFromCart} />
                         </Grid>
 
                     )
                 )}
             </Grid>
+            </div>
             <div className={classes.cardDetailes}>
                 <Typography variant="h4">
                     Subtotal: {cart.subtotal.formatted_with_symbol}
                 </Typography>
                 <div>
                     <Button className={classes.emptyButton} size="large" type='button'
-                        variant='contained' color='secondary' onClick={handleEmptyCart}>
+                        variant='outlined' color="secondary" onClick={handleEmptyCart}>
                         EmptyCart
                     </Button>
-                    <Button component = {Link} to="/checkout"
-                    className={classes.checkoutButton} size="large" type='button'
-                        variant='contained' color='primary'>
+                    <Button component={Link} to="/checkout"
+                        className={classes.checkoutButton} size="large" type='button'
+                        variant='contained' >
                         Checkout
                     </Button>
                 </div>
             </div>
-        </>
-
+            </Container>
+        
+ 
 
     );
     if (!cart.line_items) return 'Loading...'
