@@ -1,3 +1,18 @@
+# E-commerce app
+
+Completely working site with the ability to add items to the cart and subsequent payment (in test mode)
+
+Payment is provided by  [Stripe](https://stripe.com/en-gb-us).
+
+![image](https://user-images.githubusercontent.com/56282063/148348566-fe694ada-a67f-4f8a-8237-4471877abe59.png)
+
+
+## Build with 
+- ReactJS
+- Material UI
+- EcommerceJS
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
